@@ -26,8 +26,6 @@ func main() {
 		DirStructure = "(?P<fullpath>.*/)(?P<filename>.*." + os.Args[1] + ")"
 	}
 
-	fmt.Println(DirStructure)
-
 	var matcher *regexp.Regexp
 	//var finalDir string
 	matcher = regexp.MustCompile(DirStructure)
@@ -36,8 +34,6 @@ func main() {
 	ref, _ := repo.Head()
 	commit, _ := repo.CommitObject(ref.Hash())
 	fileStats := object.FileStats{}
-
-	fmt.Println(fileStats)
 
 	fileStats, _ = commit.Stats()
 
